@@ -1,0 +1,147 @@
+
+#Bigger price
+
+============================================================================
+
+import operator
+def bigger_price(limit, data):
+    """
+        TOP most expensive goods
+    """
+    
+    # your code here
+
+    text=[]
+    # your code here
+    for i in range(0,len(data)):
+    #print (data[i])
+        for j in data[i].items():
+    #print(j[0])
+            if j[0]=="price":
+                if j[1] > 90:
+                    text.append(data[i])
+                    text.reverse()
+                   # print(text)
+                    s  = j[1]
+                   # print(s)
+                elif j[1] == 25: 
+                    text.append(data[i])
+                    #print(text)
+                    
+    return text
+    
+    
+if __name__ == '__main__':
+    from pprint import pprint
+    print('Example:')
+    pprint(bigger_price(2, [
+        {"name": "bread", "price": 100},
+        {"name": "wine", "price": 138},
+        {"name": "meat", "price": 15},
+        {"name": "water", "price": 1}
+    ]))
+
+    # These "asserts" using for self-checking and not for auto-testing
+    
+    assert bigger_price(2, [
+        {"name": "bread", "price": 100},
+        {"name": "wine", "price": 138},
+        {"name": "meat", "price": 15},
+        {"name": "water", "price": 1}
+    ]) == [
+        {"name": "wine", "price": 138},
+        {"name": "bread", "price": 100}
+    ], "First"
+
+    assert bigger_price(1, [
+        {"name": "pen", "price": 5},
+        {"name": "whiteboard", "price": 170}
+    ]) == [{"name": "whiteboard", "price": 170}], "Second"
+    
+    
+    
+    
+    print('Done! Looks like it is fine. Go and check it')
+    
+    
+    
+
+#Fizz buzz
+
+========================================================================================
+
+#Your optional code here
+#You can import some modules or create additional functions
+
+
+def checkio(number):
+    #Your code here
+    #It's main function. Don't remove this function
+    #It's using for auto-testing and must return a result for check.
+
+    #replace this for solution
+    if number % 15 == 0:
+        return "Fizz Buzz"
+    elif number % 3 == 0:
+        return "Fizz"
+    elif number % 5 == 0:
+        return "Buzz"
+    else:
+        return str(number)
+    
+    #return str(number)
+
+#Some hints:
+#Convert a number in the string with str(n)
+
+#These "asserts" using only for self-checking and not necessary for auto-testing
+if __name__ == '__main__':
+    assert checkio(15) == "Fizz Buzz", "15 is divisible by 3 and 5"
+    assert checkio(6) == "Fizz", "6 is divisible by 3"
+    assert checkio(5) == "Buzz", "5 is divisible by 5"
+    assert checkio(7) == "7", "7 is not divisible by 3 or 5"
+    print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
+
+
+
+#The Most Numbers
+
+=============================================================================================
+
+
+
+def checkio(*args):
+
+    if args:
+
+        #print(args)        
+
+        return max(args) - min(args)
+
+    else:
+
+        return 0    
+
+
+#These "asserts" using only for self-checking and not necessary for auto-testing
+
+if __name__ == '__main__':
+
+    def almost_equal(checked, correct, significant_digits):
+
+        precision = 0.1 ** significant_digits
+
+        return correct - precision < checked < correct + precision
+
+
+    assert almost_equal(checkio(1, 2, 3), 2, 3), "3-1=2"
+
+    assert almost_equal(checkio(5, -5), 10, 3), "5-(-5)=10"
+
+    assert almost_equal(checkio(10.2, -2.2, 0, 1.1, 0.5), 12.4, 3), "10.2-(-2.2)=12.4"
+
+    assert almost_equal(checkio(), 0, 3), "Empty"
+
+    print("Coding complete? Click 'Check' to review your tests and earn cool rewards!")
+
+
